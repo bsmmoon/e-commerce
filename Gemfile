@@ -36,6 +36,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
 end
 
+group :test do
+  # For CircleCI
+  gem 'rspec_junit_formatter'
+end
+
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
