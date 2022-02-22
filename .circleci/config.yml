@@ -11,8 +11,8 @@ jobs:
   test:
     # we run "parallel job containers" to enable speeding up our tests;
     # this splits our tests across multiple containers.
+    # Uncomment the following line to enable parallelism
     # parallelism: 3
-    # here we set TWO docker images.
     docker:
       - image: ruby:3.0.2
     # environment variables specific to Ruby/Rails, applied to the primary container.
@@ -20,7 +20,6 @@ jobs:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       RAILS_ENV: test
-    # A series of steps to run, some are similar to those in "build".
     steps:
       - checkout
       - ruby/install-deps
@@ -28,6 +27,6 @@ jobs:
 
 workflows:
   version: 2
-  test:               # The name of our workflow is "build_and_test"
+  test:               # The name of our workflow is "test"
     jobs:             # The list of jobs we run as part of this workflow.
-      - test          # Then run test,
+      - test          # Then run test.
